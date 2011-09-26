@@ -20,11 +20,11 @@ public abstract class DriverBase extends JapexDriverBase
      *    no compressible test case has produced such speeds. Will tune as necessary
      */
     
-    final static double MAX_COMPRESS_THROUGHPUT = 499.9;
+    final static double MAX_COMPRESS_THROUGHPUT = 1499.9;
 
-    final static double MAX_UNCOMPRESS_THROUGHPUT = 499.9;
+    final static double MAX_UNCOMPRESS_THROUGHPUT = 1499.9;
 
-    final static double MAX_BOTH_THROUGHPUT = 299.9;
+    final static double MAX_BOTH_THROUGHPUT = 1499.9;
     
     protected final String _driverName;
     
