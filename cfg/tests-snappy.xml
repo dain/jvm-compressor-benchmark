@@ -24,21 +24,44 @@
                 </div>
             </description>
             <param name="japex.classPath" value="build/classes"/>
-            <param name="japex.classPath" value="/Users/dain/.m2/repository/org/iq80/snappy/snappy/0.1-SNAPSHOT/snappy-0.1-SNAPSHOT.jar"/>
+            <param name="japex.classPath" value="lib/iq80-snappy/*.jar"/>
             <param name="japex.driverClass" value="com.ning.jcbm.iq80snappy.Iq80SnappyDriver"/>
         </driver>
-
+        <driver name="Snappy(iq80)/stream" normal="false">
+            <description>
+                <div xmlns="">
+                    <p>Snappy-iq80, streaming</p>
+                </div>
+            </description>
+            <param name="streaming" value="true"/>
+            <param name="japex.classPath" value="build/classes"/>
+            <param name="japex.classPath" value="lib/iq80-snappy/*.jar"/>
+            <param name="japex.driverClass" value="com.ning.jcbm.iq80snappy.Iq80SnappyDriver"/>
+        </driver>
 
         <driver name="Snappy(JNI)/block" normal="false">
             <description>
                 <div xmlns="">
-                    <p>Snappy-java, block mode</p>
+                    <p>Snappy-jni, block mode</p>
                 </div>
             </description>
             <param name="japex.classPath" value="build/classes"/>
             <param name="japex.classPath" value="lib/snappy/*.jar"/>
             <param name="japex.driverClass" value="com.ning.jcbm.snappy.SnappyDriver"/>
+            <param name="japex.singleClassLoader" value="true"/>
         </driver>
+        <!--<driver name="Snappy(JNI)/stream" normal="false">-->
+        <!--<description>-->
+        <!--<div xmlns="">-->
+        <!--<p>Snappy-jni, streaming</p>-->
+        <!--</div>-->
+        <!--</description>-->
+        <!--<param name="streaming" value="true"/>-->
+        <!--<param name="japex.classPath" value="build/classes"/>-->
+        <!--<param name="japex.classPath" value="lib/snappy/*.jar"/>-->
+        <!--<param name="japex.driverClass" value="com.ning.jcbm.snappy.SnappyDriver"/>-->
+        <!--<param name="japex.singleClassLoader" value="true"/>-->
+        <!--</driver>-->
 
         <driver name="LZF/block">
             <description>
@@ -46,6 +69,17 @@
                     <p>Test driver for LZF, block mode</p>
                 </div>
             </description>
+            <param name="japex.classPath" value="build/classes"/>
+            <param name="japex.classPath" value="lib/lzf/*.jar"/>
+            <param name="japex.driverClass" value="com.ning.jcbm.lzf.LzfDriver"/>
+        </driver>
+        <driver name="LZF/stream">
+            <description>
+                <div xmlns="">
+                    <p>LZF, streaming</p>
+                </div>
+            </description>
+            <param name="streaming" value="true"/>
             <param name="japex.classPath" value="build/classes"/>
             <param name="japex.classPath" value="lib/lzf/*.jar"/>
             <param name="japex.driverClass" value="com.ning.jcbm.lzf.LzfDriver"/>
@@ -87,7 +121,6 @@
     <testCase name='U:sum' />
     <testCase name='U:xargs.1' />
 
-<!--
     <testCase name='R:alice29.txt' />
     <testCase name='R:asyoulik.txt' />
     <testCase name='R:cp.html' />
@@ -99,6 +132,5 @@
     <testCase name='R:ptt5' />
     <testCase name='R:sum' />
     <testCase name='R:xargs.1' />
--->
 
 </testSuite>

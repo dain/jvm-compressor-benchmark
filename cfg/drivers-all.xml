@@ -36,6 +36,17 @@
         <param name="japex.classPath" value="lib/iq80-snappy/*.jar"/>
         <param name="japex.driverClass" value="com.ning.jcbm.iq80snappy.Iq80SnappyDriver"/>
   </driver>
+    <driver name="Snappy(iq80)/stream" normal="false">
+        <description>
+            <div xmlns="">
+                <p>Snappy-iq80, streaming</p>
+            </div>
+        </description>
+        <param name="streaming" value="true"/>
+        <param name="japex.classPath" value="build/classes"/>
+        <param name="japex.classPath" value="lib/iq80-snappy/*.jar"/>
+        <param name="japex.driverClass" value="com.ning.jcbm.iq80snappy.Iq80SnappyDriver"/>
+    </driver>
 
   <!-- Normalize or not? Makes sense for throughput; but not so much for
        compression rate; hence, use "raw" values

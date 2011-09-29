@@ -10,7 +10,7 @@ java -server -cp lib/japex/\* \
 -Djava.awt.headless=true \
 -Djapex.runsPerDriver=1 \
 -Djapex.warmupTime=30 \
--Djapex.runTime=60 \
+-Djapex.runTime=5 \
 -Djapex.numberOfThreads=1 \
 -Djapex.reportsDirectory=reports/snappy \
 -Djapex.plotGroupSize=5 \

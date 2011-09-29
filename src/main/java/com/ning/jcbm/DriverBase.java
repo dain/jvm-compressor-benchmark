@@ -119,8 +119,13 @@ public abstract class DriverBase extends JapexDriverBase
         try {
             // First things first: load uncompressed input in memory; compress to verify round-tripping
             _uncompressed = loadFile(_inputFile);
-            _compressed = compressBlock(_uncompressed);
-            verifyRoundTrip(testCase.getName(), _uncompressed, _compressed);
+            if (_streaming) {
+                _compressed = compressBlockUsingStream(_uncompressed);
+                verifyRoundTripStreaming(testCase.getName(), _uncompressed, _compressed);
+            } else {
+                _compressed = compressBlock(_uncompressed);
+                verifyRoundTrip(testCase.getName(), _uncompressed, _compressed);
+            }
         }
         catch (RuntimeException e) {
             throw e;
@@ -280,6 +285,15 @@ public abstract class DriverBase extends JapexDriverBase
         }
     }
     
+    protected void verifyRoundTripStreaming(String name, byte[] raw, byte[] compressed) throws IOException
+    {
+        int uncompressedLength = uncompressFromStream(new ByteArrayInputStream(compressed), _inputBuffer);
+        if (uncompressedLength != raw.length) {
+            throw new IllegalArgumentException("Round-trip failed for driver '"+_driverName+"', input '"+name+"': uncompressed length was "+uncompressedLength+" bytes; expected "+raw.length);
+        }
+        // no way to verify actual contents without rewriting drivers
+    }
+
     protected byte[] loadFile(File file) throws IOException
     {
         FileInputStream in = new FileInputStream(file);
